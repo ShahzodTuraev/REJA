@@ -15,11 +15,15 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4 Routing code
-app.get("/hello", function(req, res){
-    res.end(`<h1 style="background: coral">Hello World by Shon</h1>`);
+app.post('/create-item', (req, res)=>{
+    console.log(req.body);
+    res.json({test: 'success'});
+    // do code with db here
+    
 });
-app.get("/gift", function(req, res){
-    res.end(`<h1 style="background: coral">You are in the gifts page</h1>`);
+
+app.get("/", function(req, res){
+    res.render("harid");
 });
 
 const server = http.createServer(app);
