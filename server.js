@@ -2,11 +2,21 @@
 const express = require("express");
 const app = express();
 const http = require('http');
+const fs = require("fs");
+
+let user;
+fs.readFile("database/user.json", "utf-8", (err, data)=>{
+    if(err){
+        console.log("ERROR:", err);
+    }else{
+        user = JSON.parse(data);
+    }
+});
 
 // 1: Kirish kodlari. expressga kirib kelayotgan ma'lumotlarga bog'liq bo'lgan kodlar yoziladi.
 app.use(express.static("public")); // chrome express ga request qilayotgan payti public folderni clientlarga ochib beradi.
 app.use(express.json()); //kirib kelayotgan json farmatidagi datani objectga ugirib beradi.
-app.use(express.urlencoded({extended: true})); //html dan form request (form data post qilsa express qabul qilib oladi)
+app.use(express.urlencoded({extended: false})); //html dan form request (form data post qilsa express qabul qilib oladi)
 
 // 2 Session larga bog'liq bo'lgan codelar yoziladi
 
@@ -19,9 +29,10 @@ app.post('/create-item', (req, res)=>{
     console.log(req.body);
     res.json({test: 'success'});
     // do code with db here
-    
 });
-
+app.get("/author", (req, res)=>{
+    res.render("author", {user: user});
+})
 app.get("/", function(req, res){
     res.render("harid");
 });
