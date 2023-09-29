@@ -1,45 +1,23 @@
-// console.log('Web serverni boshlash');
-const express = require("express");
-const app = express();
 const http = require('http');
-const fs = require("fs");
 
-let user;
-fs.readFile("database/user.json", "utf-8", (err, data)=>{
-    if(err){
-        console.log("ERROR:", err);
-    }else{
-        user = JSON.parse(data);
-    }
+const mongodb = require("mongodb");
+
+let db;
+const connectionString = "mongodb+srv://Shahzod:Ali2114351@cluster0.ej3uipu.mongodb.net/";
+
+mongodb.connect(connectionString, {
+    useNewUrlParser: true,
+     useUnifiedTopology: true,
+    }, (err, client) => {
+        if(err) console.log("ERROR on connection MongoDB");
+        else{
+            console.log("MongoDB connection succeed");
+            module.exports = client;
+            const app = require('./app');
+            const server = http.createServer(app);
+            let PORT = 3000;
+            server.listen(PORT, function(){
+                console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
 });
-
-// 1: Kirish kodlari. expressga kirib kelayotgan ma'lumotlarga bog'liq bo'lgan kodlar yoziladi.
-app.use(express.static("public")); // chrome express ga request qilayotgan payti public folderni clientlarga ochib beradi.
-app.use(express.json()); //kirib kelayotgan json farmatidagi datani objectga ugirib beradi.
-app.use(express.urlencoded({extended: false})); //html dan form request (form data post qilsa express qabul qilib oladi)
-
-// 2 Session larga bog'liq bo'lgan codelar yoziladi
-
-// 3 View code
-app.set("views", "views");
-app.set("view engine", "ejs");
-
-// 4 Routing code
-app.post('/create-item', (req, res)=>{
-    console.log(req.body);
-    res.json({test: 'success'});
-    // do code with db here
-});
-app.get("/author", (req, res)=>{
-    res.render("author", {user: user});
-})
-app.get("/", function(req, res){
-    res.render("reja");
-});
-
-const server = http.createServer(app);
-let PORT = 3000;
-server.listen(PORT, function(){
-    console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
-});
-
+        }
+    })
