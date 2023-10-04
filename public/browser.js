@@ -1,3 +1,4 @@
+
 console.log("FrontEnd JS ishga tushdi");
 const itemTemplate = (item) =>{
     return `<li
@@ -32,3 +33,53 @@ document.getElementById("create-form")
         console.log("Please, try again!");
      });
 });
+
+document.addEventListener("click", (e)=>{
+    // delete operations :
+    if(e.target.classList.contains("delete-me")){
+        console.log(e.target);
+        if(confirm("Aniq o'chirmoqchimisiz?")){
+            alert("Yes deb javob berildi");
+            axios
+            .post("/delete-item", {id: e.target.getAttribute("data-id")})
+            .then((response) =>{
+                console.log(response.data);
+                e.target.parentElement.parentElement.remove(); //frontend dan o'chadi
+            })
+            .catch((err) =>{
+                console.log("please, try again");
+            });
+        }
+    }
+
+    // edit operations :
+    if(e.target.classList.contains("edit-me")){
+        let userInput = prompt("O'zgartirish kiriting",
+        e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+        );
+        if(userInput){
+            console.log(userInput);
+            axios.post("/edit-item", {
+                id: e.target.getAttribute("data-id"),
+                new_input: userInput,
+            }).then(response=> {
+                console.log(response.data);
+                e.target.parentElement.parentElement.querySelector(
+                    ".item-text"
+                ).innerHTML = userInput;
+            }).catch(err =>{
+                console.log("Please, try again");
+            });
+        }
+    }
+});
+
+// CLEAN ALL
+
+document.getElementById("clean-all").addEventListener("click", ()=>{
+    axios.post("/delete-all", {delete_all: true})
+    .then(response=>{
+        alert(response.data.state);
+        document.location.reload();
+    })
+})

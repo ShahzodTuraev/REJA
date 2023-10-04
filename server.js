@@ -2,7 +2,7 @@ const http = require('http');
 
 const mongodb = require("mongodb");
 
-let db;
+// let db;
 const connectionString = "mongodb+srv://Shahzod:Ali2114351@cluster0.ej3uipu.mongodb.net/";
 
 mongodb.connect(connectionString, {
@@ -14,7 +14,7 @@ mongodb.connect(connectionString, {
             console.log("MongoDB connection succeed");
             module.exports = client;
             const app = require('./app');
-            const server = http.createServer(app);
+            const server = http.createServer(app); // single thread shu yerda
             let PORT = 3000;
             server.listen(PORT, function(){
                 console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
