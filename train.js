@@ -1,9 +1,7 @@
-// F-Task: findDoublers function tuzing, unga faqat bitta string argument pass bolib,
-// agar stringda bir hil harf qatnashgan bolsa true, qatnashmasa false qaytarishi kerak.
-// masalan: getReverse("hello") return true return qiladi
+// H-Task: shunday function tuzing, u string qabul qilib teskari qilib return qilsin
 
-const findDoublers = (txt) => {
- return txt.split('').map((ele, index, arr)=>(arr.includes(ele, index + 1))).includes(true)
-}
+const endToStart = (string) => {
+  return string.split("").reverse().join("");
+};
 
-console.log(findDoublers('hello'));
+console.log(endToStart("function"));
