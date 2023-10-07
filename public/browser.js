@@ -87,6 +87,7 @@ document.addEventListener("click", (e) => {
 document.getElementById("clean-all").addEventListener("click", () => {
   axios.post("/delete-all", { delete_all: true }).then((response) => {
     alert(response.data.state); //data - res.jsondagi object
-    document.location.reload();
+    // document.location.reload();
+    document.querySelector("#item-list").innerHTML = "";
   });
 });
