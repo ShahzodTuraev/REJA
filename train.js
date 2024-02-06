@@ -3,5 +3,3 @@
 const endToStart = (string) => {
   return string.split("").reverse().join("");
 };
-
-console.log(endToStart("function"));
