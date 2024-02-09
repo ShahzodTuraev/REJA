@@ -7,4 +7,11 @@ function strCount(str, letter) {
   });
   return num;
 }
-console.log(strCount("skldjkfuirrytyipp", "p"));
+
+// 2-task
+
+function invert(array) {
+  return array.map((ele) => {
+    return ele * -1;
+  });
+}
