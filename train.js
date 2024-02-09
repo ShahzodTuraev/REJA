@@ -1,5 +1,10 @@
-// H-Task: shunday function tuzing, u string qabul qilib teskari qilib return qilsin
+// 1-task
 
-const endToStart = (string) => {
-  return string.split("").reverse().join("");
-};
+function strCount(str, letter) {
+  let num = 0;
+  str.split("").forEach((ele) => {
+    if (ele === letter) num++;
+  });
+  return num;
+}
+console.log(strCount("skldjkfuirrytyipp", "p"));
