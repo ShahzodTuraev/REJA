@@ -15,3 +15,11 @@ function invert(array) {
     return ele * -1;
   });
 }
+
+// 3-task
+
+const stringToNumber = function (str) {
+  return str * 1;
+};
+
+console.log(stringToNumber("-24"));
