@@ -22,4 +22,8 @@ const stringToNumber = function (str) {
   return str * 1;
 };
 
-console.log(stringToNumber("-24"));
+// 4-task
+
+function repeats(arr) {
+  arr.map((ele, index));
+}
