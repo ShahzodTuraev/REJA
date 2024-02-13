@@ -25,5 +25,17 @@ const stringToNumber = function (str) {
 // 4-task
 
 function repeats(arr) {
-  arr.map((ele, index));
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let a = arr[i];
+    delete arr[i];
+    if (!arr.includes(a)) {
+      sum = sum + a;
+    } else {
+      sum = sum - a;
+    }
+  }
+  return sum;
 }
+
+console.log(repeats([16, 0, 11, 4, 8, 16, 0, 11]));
