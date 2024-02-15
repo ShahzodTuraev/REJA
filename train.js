@@ -38,4 +38,9 @@ function repeats(arr) {
   return sum;
 }
 
-console.log(repeats([16, 0, 11, 4, 8, 16, 0, 11]));
+// 5-task
+
+function multiply(number) {
+  return number * Math.pow(5, Math.abs(number).toString().length);
+}
+console.log(multiply(-2));
