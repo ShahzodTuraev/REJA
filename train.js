@@ -43,4 +43,9 @@ function repeats(arr) {
 function multiply(number) {
   return number * Math.pow(5, Math.abs(number).toString().length);
 }
-console.log(multiply(-2));
+
+// 6-task
+
+const combineNames = (first, last) => {
+  return `${first} ${last}`;
+};
