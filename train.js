@@ -49,3 +49,10 @@ function multiply(number) {
 const combineNames = (first, last) => {
   return `${first} ${last}`;
 };
+
+// 7-task
+function yearDays(year) {
+  return year % 4 === 0 ? `${year} has 366 days` : `${year} has 365 days`;
+}
+
+console.log(yearDays(100));
