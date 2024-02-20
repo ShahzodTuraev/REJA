@@ -55,4 +55,27 @@ function yearDays(year) {
   return year % 4 === 0 ? `${year} has 366 days` : `${year} has 365 days`;
 }
 
-console.log(yearDays(100));
+// 8-task
+function add(a,b){
+  return a + b
+}
+
+function divide(a,b){
+  return a / b
+}
+
+function multiply(a,b){
+  return a * b
+}
+
+function mod(a,b){
+  return a % b
+}
+ 
+function exponent(a,b){
+  return Math.pow(a, b)
+}
+  
+function subt(a,b){
+  return a - b
+}
