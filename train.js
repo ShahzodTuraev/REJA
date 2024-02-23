@@ -56,26 +56,32 @@ function yearDays(year) {
 }
 
 // 8-task
-function add(a,b){
-  return a + b
+function add(a, b) {
+  return a + b;
 }
 
-function divide(a,b){
-  return a / b
+function divide(a, b) {
+  return a / b;
 }
 
-function multiply(a,b){
-  return a * b
+function multiply(a, b) {
+  return a * b;
 }
 
-function mod(a,b){
-  return a % b
+function mod(a, b) {
+  return a % b;
 }
- 
-function exponent(a,b){
-  return Math.pow(a, b)
+
+function exponent(a, b) {
+  return Math.pow(a, b);
 }
-  
-function subt(a,b){
-  return a - b
+
+function subt(a, b) {
+  return a - b;
+}
+
+// 9-task
+
+function isAllPossibilities(x) {
+  return x.length - 1 === x[x.length - 1] && x.includes(0);
 }
