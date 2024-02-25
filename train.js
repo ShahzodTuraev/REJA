@@ -85,3 +85,9 @@ function subt(a, b) {
 function isAllPossibilities(x) {
   return x.length - 1 === x[x.length - 1] && x.includes(0);
 }
+
+// 10-task
+
+function logs(x, a, b) {
+  return Math.log(a * b) / Math.log(x);
+}
