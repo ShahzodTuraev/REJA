@@ -91,3 +91,12 @@ function isAllPossibilities(x) {
 function logs(x, a, b) {
   return Math.log(a * b) / Math.log(x);
 }
+
+// 11-task
+
+function sumArray(array) {
+  return array.length >= 2
+    ? array.reduce((a, b) => a + b, 0) - Math.min(...array) - Math.max(...array)
+    : 0;
+}
+console.log(sumArray([1]));
