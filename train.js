@@ -99,4 +99,3 @@ function sumArray(array) {
     ? array.reduce((a, b) => a + b, 0) - Math.min(...array) - Math.max(...array)
     : 0;
 }
-console.log(sumArray([1]));

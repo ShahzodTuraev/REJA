@@ -18,7 +18,7 @@ mongodb.connect(
       console.log("MongoDB connection succeed");
       module.exports = client;
       const app = require("./app");
-      const server = http.createServer(app); // single thread shu yerda
+      const server = http.createServer(app); // single thread shu yerda nest usable
       let PORT = 3003;
       server.listen(PORT, function () {
         console.log(
